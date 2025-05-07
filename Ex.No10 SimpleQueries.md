@@ -1,6 +1,6 @@
 # Ex.No: 10  Logic Programming –  Simple queries from facts and rules
-### DATE: 18/03/2025                                                                           
-### REGISTER NUMBER : 212222040087
+### DATE:22.04.2025                                                                           
+### REGISTER NUMBER :212222040087
 ### AIM: 
 To write a prolog program to find the answer of query. 
 ###  Algorithm:
@@ -22,20 +22,20 @@ Construct the FOL representation for the following sentences <br>
    Convert into clause form and Prove that John like Apple by using Prolog. <br> 
 ### Program:
 ```
-likes(john,X):-
-food(X).
-eats(bill,X):-
-eats(sue,X).
-eats(Y,X):-
-food(X).
-eats(bill,peanuts).
-food(apple).
+food(apples).
 food(chicken).
 food(peanuts).
+likes(john, X) :-
+  food(X).
+eats(bill, X) :-
+ food(X).
+eats(sue, X) :-
+  eats(bill, X).
 ```
 
 ### Output:
-![WhatsApp Image 2024-03-23 at 15 47 31_c1cf5c1e](https://github.com/snoopydj911/AI_Lab_2023-24/assets/122033587/3aff850a-f3f8-4f8b-aaf8-a986e2d80289)
+![image](https://github.com/Rajithxx/AI_Lab_2023-24/assets/148357145/c3034336-258c-4077-b01d-27415fb7d372)
+
 ### Task 2:
 Consider the following facts and represent them in predicate form: <br>              
 1.	Steve likes easy courses. <br> 
@@ -46,16 +46,16 @@ Convert the facts in predicate form to clauses and then prove by resolution: “
 
 ### Program:
 ```
-likes(steve,X):-
-easycourse(X).
-hard(sciencecourse).
-easycourse(X):-
-course(X,dept(havefun)).
-course(bk301,dept(havefun)).
+likes(steve, X) :-
+ easy_course(X).
+hard_course(science).
+easy_course(X) :-
+ in_department(X, have_fun).
+in_department(bk301, have_fun).
 ```
 
 ### Output:
-![WhatsApp Image 2024-03-23 at 15 50 34_cc73f8f2](https://github.com/snoopydj911/AI_Lab_2023-24/assets/122033587/0c4eedb7-2c05-4127-9e33-36cbb226d917)
+![image](https://github.com/Rajithxx/AI_Lab_2023-24/assets/148357145/38a485f0-1385-4bd8-905d-b774930886a5)
 
 ### Task 3:
 Consider the statement <br> 
@@ -64,25 +64,28 @@ Convert to Clause form and prove west is criminal by using Prolog.<br>
 ### Program:
 ```
 criminal(X):-
-american(X),
-weapon(Y),
-hostile(Z),
-sells(X,Y,Z).
+    american(X),
+    weapon(Y),
+    hostile(Z),
+    sells(X,Y,Z).
+
 weapon(Y):-
-missile(Y).
+    missile(Y).
+
 hostile(Z):-
-enemy(Z,X).
+    enemy(Z,america).
+
 sells(west,Y,nano):-
-missile(Y),
-owns(nano,Y).
+    missile(Y),
+    owns(nano,Y).
 missile(m).
 owns(nano,m).
 enemy(nano,america).
 american(west).
 ```
-### Output:
-![WhatsApp Image 2024-03-23 at 15 54 15_be576c7d](https://github.com/snoopydj911/AI_Lab_2023-24/assets/122033587/781a8ce9-5830-4b75-a60d-3662316258fc)
 
+### Output:
+![image](https://github.com/Rajithxx/AI_Lab_2023-24/assets/148357145/0d91172b-9b7c-40ad-8560-1545a4c81656)
 
 ### Result:
 Thus the prolog programs were executed successfully and the answer of query was found.
